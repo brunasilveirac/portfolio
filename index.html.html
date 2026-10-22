@@ -1,0 +1,508 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Bruna Silveira · Tech &amp; IA</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: página única de rolagem, coluna de leitura de 1080px; metáfora da partitura (abertura → coda) nomeia as seções */
+:root {
+  --bg: #FFFFFF;
+  --surface: #F4F6F9;
+  --line: #DCE0E7;
+  --muted: #5F6672;
+  --ink: #0B0D12;
+  --blue: #1F4BFF;
+  --blue-soft: #E9EEFF;
+  --blue-deep: #0A2A9E;
+  --sans: "Geist", "Helvetica Neue", Arial, sans-serif;
+  --mono: "Geist Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--sans); font-size: 16px; line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap {
+  max-width: 1080px; margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+a { color: var(--blue); text-decoration: none; }
+a:hover { text-decoration: underline; }
+a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; border-radius: 4px; }
+h1, h2, h3 { text-wrap: balance; margin: 0; letter-spacing: -0.02em; }
+p { margin: 0; }
+.eyebrow {
+  font-family: var(--mono); font-size: 12px; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--muted);
+}
+.eyebrow b { color: var(--blue); font-weight: 500; }
+
+/* topo */
+.top { border-bottom: 1px solid var(--line); }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 18px; flex-wrap: wrap; }
+.brand { font-weight: 600; letter-spacing: -0.01em; color: var(--ink); }
+.brand span { color: var(--blue); }
+.switch { display: flex; gap: 4px; padding: 4px; background: var(--surface); border-radius: 999px; }
+.switch a { font-size: 14px; padding: 6px 14px; border-radius: 999px; color: var(--muted); }
+.switch a[aria-current="page"] { background: var(--ink); color: var(--bg); }
+.switch a:hover { text-decoration: none; color: var(--ink); }
+.switch a[aria-current="page"]:hover { color: var(--bg); }
+
+/* hero */
+.hero .wrap { padding-block: 72px 56px; display: grid; grid-template-columns: 1.15fr 1fr; gap: 48px; align-items: center; }
+.hero h1 { font-size: clamp(38px, 6vw, 68px); line-height: 1.02; font-weight: 600; margin-top: 18px; }
+.hero h1 .l2 { color: var(--muted); font-weight: 400; }
+.hero h1 .l3 { color: var(--blue); }
+.hero .micro { margin-top: 24px; max-width: 46ch; color: var(--muted); font-size: 17px; }
+.hero .anchor { display: inline-flex; align-items: center; gap: 10px; margin-top: 32px; font-weight: 500; color: var(--ink); border-bottom: 1px solid var(--ink); padding-bottom: 2px; }
+.hero .anchor:hover { text-decoration: none; color: var(--blue); border-color: var(--blue); }
+.symbol { min-width: 0; }
+.symbol svg { width: 100%; height: auto; display: block; }
+.symbol figcaption { font-family: var(--mono); font-size: 12px; color: var(--muted); margin-top: 10px; }
+
+/* seções */
+section.block { border-top: 1px solid var(--line); }
+section.block > .wrap { padding-block: 80px; }
+.sec-head { display: grid; grid-template-columns: 220px 1fr; gap: 32px; margin-bottom: 48px; }
+.sec-head h2 { font-size: clamp(28px, 3.6vw, 40px); font-weight: 600; line-height: 1.1; }
+.sec-head p { color: var(--muted); margin-top: 12px; max-width: 60ch; }
+
+/* cases */
+.cases { display: grid; gap: 24px; }
+.case { display: grid; grid-template-columns: 220px 1fr; gap: 32px; padding-top: 32px; border-top: 1px solid var(--line); }
+.case:first-child { border-top: 0; padding-top: 0; }
+.case .num { font-family: var(--mono); font-size: 48px; line-height: 1; color: var(--blue); font-weight: 400; }
+.case .tag { margin-top: 14px; }
+.case-body { min-width: 0; }
+.case h3 { font-size: clamp(22px, 2.6vw, 30px); font-weight: 600; line-height: 1.15; }
+.case .ctx { margin-top: 14px; color: var(--muted); max-width: 64ch; }
+.ba { display: grid; grid-template-columns: 1fr auto 1fr; gap: 12px; align-items: stretch; margin-top: 24px; }
+.ba > div { padding: 16px 18px; border-radius: 10px; min-width: 0; }
+.ba .before { background: var(--surface); }
+.ba .after { background: var(--blue-soft); }
+.ba .k { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+.ba .after .k { color: var(--blue-deep); }
+.ba p { margin-top: 6px; font-size: 15px; }
+.ba .arrow { align-self: center; font-family: var(--mono); color: var(--blue); font-size: 20px; }
+.role { margin-top: 18px; font-size: 14px; color: var(--muted); }
+.role b { color: var(--ink); font-weight: 500; }
+details { margin-top: 20px; border-top: 1px solid var(--line); }
+summary {
+  list-style: none; cursor: pointer; padding: 14px 0; font-weight: 500;
+  display: flex; justify-content: space-between; align-items: center; gap: 12px;
+}
+summary::-webkit-details-marker { display: none; }
+summary .plus { font-family: var(--mono); color: var(--blue); font-size: 20px; transition: transform .2s; }
+details[open] summary .plus { transform: rotate(45deg); }
+.behind { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; padding-bottom: 8px; }
+.behind ul { margin: 0; padding-left: 18px; display: grid; gap: 6px; font-size: 15px; }
+.behind h4 { margin: 0 0 8px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { font-family: var(--mono); font-size: 12px; padding: 4px 10px; border: 1px solid var(--line); border-radius: 999px; color: var(--ink); background: var(--bg); }
+
+/* constância */
+.proof { display: grid; gap: 32px; }
+.clock { background: var(--surface); border-radius: 14px; padding: 24px; overflow-x: auto; }
+.clock svg { display: block; min-width: 640px; width: 100%; height: auto; }
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.stat { border-top: 2px solid var(--ink); padding-top: 14px; }
+.stat .v { font-size: clamp(36px, 5vw, 52px); font-weight: 600; letter-spacing: -0.03em; line-height: 1; font-variant-numeric: tabular-nums; }
+.stat .v small { font-size: 0.45em; color: var(--muted); font-weight: 500; letter-spacing: 0; }
+.stat p { margin-top: 10px; color: var(--muted); font-size: 15px; max-width: 30ch; }
+
+/* comparativo */
+.compare { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+.compare > div { padding: 28px; min-width: 0; }
+.compare .left { background: var(--surface); }
+.compare .right { background: var(--bg); border-left: 1px solid var(--line); }
+.compare h3 { font-size: 20px; font-weight: 600; margin-top: 8px; }
+.compare ul { list-style: none; margin: 18px 0 0; padding: 0; display: grid; gap: 0; }
+.compare li { padding: 12px 0; border-top: 1px solid var(--line); font-size: 15px; display: grid; grid-template-columns: 110px 1fr; gap: 12px; }
+.compare li span { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); padding-top: 3px; }
+.compare .right .eyebrow { color: var(--blue); }
+
+/* stack */
+.stack { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+.stack h4 { margin: 0 0 10px; font-size: 15px; font-weight: 600; }
+
+/* contato */
+.doors { display: grid; gap: 0; border-top: 1px solid var(--ink); }
+.door { display: grid; grid-template-columns: 160px 1fr auto; gap: 16px; align-items: center; padding: 20px 0; border-bottom: 1px solid var(--line); }
+.door .k { font-family: var(--mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+.door .val { font-size: clamp(17px, 2.2vw, 22px); font-weight: 500; min-width: 0; overflow-wrap: anywhere; user-select: all; }
+.door button {
+  font: 500 14px var(--sans); padding: 8px 16px; border-radius: 999px; cursor: pointer;
+  border: 1px solid var(--ink); background: var(--bg); color: var(--ink);
+}
+.door button:hover { background: var(--ink); color: var(--bg); }
+.door button.ok { background: var(--blue); border-color: var(--blue); color: var(--bg); }
+.foot .wrap { padding-block: 32px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: 13px; color: var(--muted); border-top: 1px solid var(--line); }
+
+@media (max-width: 860px) {
+  .hero .wrap { grid-template-columns: 1fr; padding-block: 48px 40px; }
+  .sec-head, .case { grid-template-columns: 1fr; gap: 12px; }
+  .stack { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 620px) {
+  .ba { grid-template-columns: 1fr; }
+  .ba .arrow { transform: rotate(90deg); justify-self: center; }
+  .behind, .stats, .compare { grid-template-columns: 1fr; }
+  .compare .right { border-left: 0; border-top: 1px solid var(--line); }
+  .door { grid-template-columns: 1fr auto; }
+  .door .k { grid-column: 1 / -1; }
+  section.block > .wrap { padding-block: 56px; }
+  .compare li { grid-template-columns: 1fr; gap: 2px; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+@media (prefers-reduced-motion: no-preference) {
+  .flow { stroke-dasharray: 4 8; animation: run 2.4s linear infinite; }
+  @keyframes run { to { stroke-dashoffset: -24; } }
+}
+.navlink { font-size: 14px; color: var(--ink); border: 1px solid var(--line); padding: 6px 14px; border-radius: 999px; }
+.navlink:hover { text-decoration: none; border-color: var(--ink); }
+.clients { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--ink); }
+.clients li { list-style: none; padding: 22px 16px 22px 0; border-bottom: 1px solid var(--line); font-size: clamp(18px, 2.2vw, 24px); font-weight: 500; letter-spacing: -0.01em; min-width: 0; }
+.clients { margin: 0; padding: 0; }
+@media (max-width: 620px) { .clients { grid-template-columns: 1fr 1fr; } }
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#abertura">Bruna Silveira<span>.</span></a>
+    <a class="navlink" href="#coda">Contato</a>
+  </div>
+</header>
+
+<main>
+  <!-- ABERTURA -->
+  <section class="hero" id="abertura">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow"><b>Abertura</b> · Engenheira de prompt · Tech &amp; IA</p>
+        <h1>
+          <span class="l1">Cada mensagem</span><br>
+          <span class="l2">no tempo certo,</span><br>
+          <span class="l3">sem ninguém lembrar.</span>
+        </h1>
+        <p class="micro">Sou engenheira de prompt e gestora de tecnologia. Desenho, testo e coloco no ar agentes de IA, automações e CRMs que conversam com clientes pelo WhatsApp, e escolho quando usar IA e quando um fluxo fixo resolve melhor.</p>
+        <a class="anchor" href="#movimentos">Ver três casos <span aria-hidden="true">↓</span></a>
+      </div>
+      <figure class="symbol" style="margin:0">
+        <svg viewBox="0 0 440 300" role="img" aria-labelledby="symT">
+          <title id="symT">Pauta com três notas: pesquisa de satisfação logo após a troca, lembrete no quinto mês e aviso no sexto mês</title>
+          <g stroke="#DCE0E7" stroke-width="1">
+            <line x1="0" y1="80" x2="440" y2="80"/><line x1="0" y1="110" x2="440" y2="110"/><line x1="0" y1="140" x2="440" y2="140"/><line x1="0" y1="170" x2="440" y2="170"/><line x1="0" y1="200" x2="440" y2="200"/>
+          </g>
+          <g stroke="#0B0D12" stroke-width="1.5">
+            <line x1="40" y1="70" x2="40" y2="210"/><line x1="436" y1="70" x2="436" y2="210"/>
+          </g>
+          <line class="flow" x1="70" y1="235" x2="420" y2="235" stroke="#1F4BFF" stroke-width="1.5"/>
+          <g>
+            <ellipse cx="90" cy="170" rx="13" ry="10" fill="#0B0D12"/><line x1="102" y1="168" x2="102" y2="100" stroke="#0B0D12" stroke-width="2"/>
+            <ellipse cx="320" cy="125" rx="13" ry="10" fill="#1F4BFF"/><line x1="332" y1="123" x2="332" y2="55" stroke="#1F4BFF" stroke-width="2"/>
+            <ellipse cx="392" cy="95" rx="13" ry="10" fill="#1F4BFF"/><line x1="404" y1="93" x2="404" y2="25" stroke="#1F4BFF" stroke-width="2"/>
+          </g>
+          <g font-family="Geist Mono, monospace" font-size="11" fill="#5F6672" text-anchor="middle">
+            <text x="90" y="258">dia 0</text><text x="320" y="258">mês 5</text><text x="392" y="258">mês 6</text>
+          </g>
+          <g font-family="Geist, sans-serif" font-size="12" fill="#0B0D12" text-anchor="middle">
+            <text x="90" y="282">NPS</text><text x="320" y="282">lembrete</text><text x="392" y="282">aviso</text>
+          </g>
+        </svg>
+        <figcaption>Uma régua de WhatsApp lida como partitura.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- MOVIMENTOS -->
+  <section class="block" id="movimentos">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow"><b>Movimentos</b> · Casos</p>
+        <div>
+          <h2>Três casos, contados pelo resultado.</h2>
+          <p>Os clientes aparecem pelo setor, não pelo nome. Os números saem dos registros dos próprios projetos.</p>
+        </div>
+      </div>
+
+      <div class="cases">
+        <!-- 01 -->
+        <article class="case">
+          <div>
+            <div class="num">01</div>
+            <p class="eyebrow tag">Automação · WhatsApp</p>
+          </div>
+          <div class="case-body">
+            <h3>Uma régua de WhatsApp que pergunta, lembra e avisa sozinha</h3>
+            <p class="ctx">Uma rede de seis postos queria trazer de volta quem trocou o óleo e saber se o cliente saiu satisfeito. O número oficial travava o prazo e cada posto controlava as trocas numa planilha.</p>
+            <div class="ba">
+              <div class="before"><span class="k">Antes</span><p>Nenhum contato depois da troca e nenhuma medida de satisfação.</p></div>
+              <div class="arrow" aria-hidden="true">→</div>
+              <div class="after"><span class="k">Depois</span><p>Pesquisa logo após a troca, lembrete no quinto mês com oferta e aviso de óleo vencido no sexto.</p></div>
+            </div>
+            <p class="role"><b>Meu papel:</b> estimativa de custo das mensagens, ativação do número na Meta, escrita das mensagens, horários de envio e operação dos disparos.</p>
+            <details>
+              <summary>Por trás da entrega <span class="plus" aria-hidden="true">+</span></summary>
+              <div class="behind">
+                <div>
+                  <h4>Como foi feito</h4>
+                  <ul>
+                    <li>Troca do número físico por um número virtual para destravar o prazo, com verificação do negócio na Meta.</li>
+                    <li>Pesquisa enviada toda segunda de manhã aos clientes da semana, com três fluxos no n8n prontos para a régua completa: carga diária, lembrete com até três tentativas e opt-out, e envio central pelo Chatwoot.</li>
+                    <li>Pesquisa de satisfação como máquina de estados fixa, sem IA. Quem dá nota baixa recebe etiqueta e vai para atendimento humano.</li>
+                    <li>Lotes diários para uma base parceira de 20 a 40 mil números, abaixo do limite da conta, para proteger a reputação do número.</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4>Primeiro resultado</h4>
+                  <ul>
+                    <li>Primeira pesquisa enviada a 49 clientes: 12 responderam até o fim, nenhum com nota de 1 a 6.</li>
+                    <li>Mensagem de utilidade entre R$ 0,03 e R$ 0,06, levantado antes de ligar a régua.</li>
+                  </ul>
+                  <h4 style="margin-top:20px">Stack</h4>
+                  <div class="chips"><span class="chip">WhatsApp Cloud API</span><span class="chip">Chatwoot</span><span class="chip">n8n</span><span class="chip">Supabase</span><span class="chip">Meta Business</span></div>
+                </div>
+              </div>
+            </details>
+          </div>
+        </article>
+
+        <!-- 02 -->
+        <article class="case">
+          <div>
+            <div class="num">02</div>
+            <p class="eyebrow tag">Produto · CRM</p>
+          </div>
+          <div class="case-body">
+            <h3>Um CRM próprio, especificado com IA e entregue em sprints</h3>
+            <p class="ctx">O mesmo cliente precisava registrar as trocas por posto e acompanhar quem volta. Em vez de adaptar uma ferramenta pronta, o CRM foi desenhado do zero em torno da rotina dos gerentes.</p>
+            <div class="ba">
+              <div class="before"><span class="k">Antes</span><p>Planilhas por posto e disparo montado à mão a partir delas.</p></div>
+              <div class="arrow" aria-hidden="true">→</div>
+              <div class="after"><span class="k">Depois</span><p>Funis de novos clientes, pós-troca e retorno, acesso por posto e API que alimenta os disparos.</p></div>
+            </div>
+            <p class="role"><b>Meu papel:</b> requisitos com o cliente, priorização e validação das sprints, e a API que liga o CRM aos disparos automáticos.</p>
+            <details>
+              <summary>Por trás da entrega <span class="plus" aria-hidden="true">+</span></summary>
+              <div class="behind">
+                <div>
+                  <h4>Como foi feito</h4>
+                  <ul>
+                    <li>Documento de produto com 431 linhas: grupos e funis configuráveis, perfis de administrador e operador, importação com prévia e deduplicação, histórico de alterações.</li>
+                    <li>Cada funcionalidade com especificação, desenho e lista de tarefas gerados com IA antes de qualquer código, com implementação assistida por modelos Claude.</li>
+                    <li>Sprints no ClickUp, com o CRM estabilizado antes de automatizar os envios.</li>
+                    <li>Campo de preço e especificação do óleo e exportação com filtro de data, a pedido da operação.</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4>Disciplina de decisão</h4>
+                  <ul>
+                    <li>64 decisões registradas no projeto, cada uma com contexto, alternativas e consequências.</li>
+                    <li>Treinamento dos gerentes dos postos planejado junto com a entrega.</li>
+                  </ul>
+                  <h4 style="margin-top:20px">Stack</h4>
+                  <div class="chips"><span class="chip">Supabase</span><span class="chip">REST API</span><span class="chip">Claude Code</span><span class="chip">Spec-driven</span><span class="chip">ClickUp</span></div>
+                </div>
+              </div>
+            </details>
+          </div>
+        </article>
+
+        <!-- 03 -->
+        <article class="case">
+          <div>
+            <div class="num">03</div>
+            <p class="eyebrow tag">IA · Agentes de vendas</p>
+          </div>
+          <div class="case-body">
+            <h3>Agentes de vendas no WhatsApp que o próprio cliente aprende a ajustar</h3>
+            <p class="ctx">Agentes de IA atendem leads no WhatsApp para vários clientes. Cada ajuste de tom ou de oferta dependia do time técnico, e o agente da própria agência tentava vender tudo ao mesmo tempo.</p>
+            <div class="ba">
+              <div class="before"><span class="k">Antes</span><p>Agente com escopo amplo e cada mudança de prompt na fila do time.</p></div>
+              <div class="arrow" aria-hidden="true">→</div>
+              <div class="after"><span class="k">Depois</span><p>Agente focado em um único produto e clientes treinados para ajustar o próprio prompt.</p></div>
+            </div>
+            <p class="role"><b>Meu papel:</b> engenharia de prompt, QA tests dos agentes antes de cada publicação, onboarding dos clientes e testes da plataforma interna de agentes.</p>
+            <details>
+              <summary>Por trás da entrega <span class="plus" aria-hidden="true">+</span></summary>
+              <div class="behind">
+                <div>
+                  <h4>Como foi feito</h4>
+                  <ul>
+                    <li>Escopo do agente reduzido a um produto, com prompt reescrito a cada rodada de feedback.</li>
+                    <li>QA tests de prompt: cenários de conversa com resposta esperada, rodados para validar comportamento, guardrails e cada mudança antes do deploy.</li>
+                    <li>Onboarding de clientes de moda e de outros setores para editarem os prompts com autonomia.</li>
+                    <li>Preparação de número e conta comercial na Meta para novos agentes.</li>
+                    <li>Sugestões de usabilidade para a plataforma de agentes, geradas com uma skill de UX e adotadas pelo desenvolvimento.</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4>IA no dia a dia do time</h4>
+                  <ul>
+                    <li>Base de conhecimento dos clientes em Markdown, conectada ao Claude Code, que se mantém atualizada a partir de atas e conversas.</li>
+                    <li>Resumo noturno dos grupos de clientes no WhatsApp, gerado por IA e versionado no GitHub, sem dados pessoais de leads.</li>
+                  </ul>
+                  <h4 style="margin-top:20px">Stack</h4>
+                  <div class="chips"><span class="chip">Prompt engineering</span><span class="chip">QA tests</span><span class="chip">Guardrails</span><span class="chip">Claude</span><span class="chip">Gemini</span><span class="chip">n8n</span><span class="chip">GitHub</span></div>
+                </div>
+              </div>
+            </details>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPASSO -->
+  <section class="block" id="compasso">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow"><b>Compasso</b> · Constância</p>
+        <div>
+          <h2>Uma semana de automações no ar.</h2>
+          <p>Rotinas agendadas que rodam todos os dias. Cada marca é uma execução.</p>
+        </div>
+      </div>
+      <div class="proof">
+        <div class="clock" id="week" aria-label="Grade semanal com as automações agendadas"></div>
+        <div class="stats">
+          <div class="stat"><div class="v">2.674</div><p>leads num único disparo, com custo e tempo de envio previstos.</p></div>
+          <div class="stat"><div class="v">64</div><p>decisões documentadas num só projeto, do contrato à automação.</p></div>
+          <div class="stat"><div class="v">431<small> linhas</small></div><p>no documento de produto do CRM, antes da primeira linha de código.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DUAS VOZES -->
+  <section class="block" id="duas-vozes">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow"><b>Duas vozes</b> · Comparativo</p>
+        <div>
+          <h2>Fluxo fixo ou agente de IA.</h2>
+          <p>Nem toda conversa precisa de IA. Esta é a régua que uso para decidir.</p>
+        </div>
+      </div>
+      <div class="compare">
+        <div class="left">
+          <p class="eyebrow">Voz 1</p>
+          <h3>Fluxo fixo</h3>
+          <ul>
+            <li><span>Quando</span>A pergunta é fechada e a resposta cabe num número ou num botão.</li>
+            <li><span>Custo</span>Só a mensagem do WhatsApp.</li>
+            <li><span>Risco</span>Nenhuma resposta fora do roteiro.</li>
+            <li><span>Saída</span>Etiqueta e alerta para um humano quando algo foge do esperado.</li>
+            <li><span>Exemplo</span>Pesquisa de satisfação depois da troca de óleo.</li>
+          </ul>
+        </div>
+        <div class="right">
+          <p class="eyebrow">Voz 2</p>
+          <h3>Agente de IA</h3>
+          <ul>
+            <li><span>Quando</span>A conversa é aberta, com dúvidas, objeções e negociação.</li>
+            <li><span>Custo</span>Mensagem mais o uso do modelo em cada resposta.</li>
+            <li><span>Risco</span>Precisa de escopo claro, guardrails no prompt e QA tests antes de publicar.</li>
+            <li><span>Saída</span>Passagem para o time comercial quando o lead está pronto.</li>
+            <li><span>Exemplo</span>Agente que vende um produto e qualifica o lead no WhatsApp.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSTRUMENTOS -->
+  <section class="block" id="instrumentos">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow"><b>Instrumentos</b> · Ferramentas</p>
+        <div><h2>O que eu uso para compor.</h2></div>
+      </div>
+      <div class="stack">
+        <div><h4>Mensageria</h4><div class="chips"><span class="chip">WhatsApp Cloud API</span><span class="chip">Chatwoot</span><span class="chip">Meta Business</span><span class="chip">Templates</span></div></div>
+        <div><h4>Automação</h4><div class="chips"><span class="chip">n8n</span><span class="chip">Webhooks</span><span class="chip">REST APIs</span><span class="chip">Supabase</span></div></div>
+        <div><h4>IA</h4><div class="chips"><span class="chip">Claude</span><span class="chip">Claude Code</span><span class="chip">Gemini</span><span class="chip">Prompts de SDR e closer</span><span class="chip">QA de prompts</span></div></div>
+        <div><h4>Gestão</h4><div class="chips"><span class="chip">ClickUp</span><span class="chip">Specs com IA</span><span class="chip">Sprints</span><span class="chip">Registro de decisões</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="clientes">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow"><b>Repertório</b> · Clientes</p>
+        <div><h2>Outros clientes atendidos.</h2></div>
+      </div>
+      <ul class="clients">
+        <li>Wiser Educação</li><li>ATrinca</li><li>Marun Running</li><li>Método Destiny</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CODA -->
+  <section class="block" id="coda">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow"><b>Coda</b> · Contato</p>
+        <div><h2>Escolha uma porta.</h2><p>Uma por canal. O botão copia o endereço.</p></div>
+      </div>
+      <div class="doors">
+        <div class="door"><span class="k">E-mail</span><span class="val">bruna.silveirac@outlook.com</span><button type="button" data-copy>Copiar</button></div>
+        <div class="door"><span class="k">LinkedIn</span><span class="val"><a href="https://www.linkedin.com/in/bruna-silveira-crispim/">linkedin.com/in/bruna-silveira-crispim</a></span><button type="button" data-copy data-value="https://www.linkedin.com/in/bruna-silveira-crispim/">Copiar</button></div>
+        <div class="door"><span class="k">WhatsApp</span><span class="val">+55 18 99714-2108</span><button type="button" data-copy>Copiar</button></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap"><span>Bruna Silveira · Tech &amp; IA</span><span>Clientes citados por setor, a pedido de confidencialidade.</span></div>
+</footer>
+
+<script>
+(function () {
+  // grade semanal: dias nas colunas, rotinas nas linhas
+  var days = ["seg", "ter", "qua", "qui", "sex", "sáb", "dom"];
+  var rows = [
+    { label: "Pesquisa de satisfação", time: "seg", days: [0], color: "#1F4BFF" },
+    { label: "Cargas de anúncios e CRM", time: "15 min", days: [0, 1, 2, 3, 4, 5, 6], color: "#0A2A9E" },
+    { label: "Base de conhecimento", time: "11h", days: [0, 1, 2, 3, 4, 5, 6], color: "#0B0D12" },
+    { label: "Resumo dos grupos", time: "23h30", days: [0, 1, 2, 3, 4, 5, 6], color: "#5F6672" }
+  ];
+  var W = 900, left = 220, right = 16, top = 30, rowH = 36, H = top + rows.length * rowH + 8;
+  var colW = (W - left - right) / 7;
+  var s = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img"><title>Rotinas agendadas ao longo de uma semana</title>';
+  days.forEach(function (d, i) {
+    var cx = left + colW * i + colW / 2;
+    s += '<text x="' + cx + '" y="16" font-family="Geist Mono, monospace" font-size="11" fill="#5F6672" text-anchor="middle">' + d + '</text>';
+    if (i) s += '<line x1="' + (left + colW * i) + '" x2="' + (left + colW * i) + '" y1="' + (top - 6) + '" y2="' + (H - 4) + '" stroke="#DCE0E7"/>';
+  });
+  rows.forEach(function (r, j) {
+    var cy = top + j * rowH + rowH / 2;
+    s += '<text x="0" y="' + (cy + 4) + '" font-family="Geist, sans-serif" font-size="13" fill="#0B0D12">' + r.label + '</text>';
+    s += '<text x="' + (left - 14) + '" y="' + (cy + 4) + '" font-family="Geist Mono, monospace" font-size="11" fill="#5F6672" text-anchor="end">' + r.time + '</text>';
+    r.days.forEach(function (i) {
+      var cx = left + colW * i + colW / 2;
+      s += '<rect x="' + (cx - colW * 0.32) + '" y="' + (cy - 7) + '" width="' + (colW * 0.64) + '" height="14" rx="7" fill="' + r.color + '"/>';
+    });
+  });
+  s += '</svg>';
+  document.getElementById("week").innerHTML = s;
+
+  document.querySelectorAll("[data-copy]").forEach(function (b) {
+    b.addEventListener("click", function () {
+      var v = b.parentNode.querySelector(".val");
+      var text = b.dataset.value || v.textContent.trim();
+      var done = function () { b.textContent = "Copiado"; b.classList.add("ok"); setTimeout(function () { b.textContent = "Copiar"; b.classList.remove("ok"); }, 1600); };
+      var fallback = function () { var r = document.createRange(); r.selectNodeContents(v); var sel = getSelection(); sel.removeAllRanges(); sel.addRange(r); b.textContent = "Selecionado"; };
+      try { navigator.clipboard.writeText(text).then(done, fallback); } catch (e) { fallback(); }
+    });
+  });
+})();
+</script>
+
+</body></html>

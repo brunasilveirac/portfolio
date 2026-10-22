@@ -1,0 +1,523 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Bruna Silveira · Dados</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: página única de rolagem, coluna de leitura de 1080px; metáfora do rio (nascente → foz) nomeia as seções */
+:root {
+  --bg: #FFFFFF;
+  --surface: #F4F6F9;
+  --line: #DCE0E7;
+  --muted: #5F6672;
+  --ink: #0B0D12;
+  --blue: #1F4BFF;
+  --blue-soft: #E9EEFF;
+  --blue-deep: #0A2A9E;
+  --sans: "Geist", "Helvetica Neue", Arial, sans-serif;
+  --mono: "Geist Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--sans); font-size: 16px; line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap {
+  max-width: 1080px; margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+a { color: var(--blue); text-decoration: none; }
+a:hover { text-decoration: underline; }
+a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; border-radius: 4px; }
+h1, h2, h3 { text-wrap: balance; margin: 0; letter-spacing: -0.02em; }
+p { margin: 0; }
+.eyebrow {
+  font-family: var(--mono); font-size: 12px; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--muted);
+}
+.eyebrow b { color: var(--blue); font-weight: 500; }
+
+/* topo */
+.top { border-bottom: 1px solid var(--line); }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 18px; flex-wrap: wrap; }
+.brand { font-weight: 600; letter-spacing: -0.01em; color: var(--ink); }
+.brand span { color: var(--blue); }
+.switch { display: flex; gap: 4px; padding: 4px; background: var(--surface); border-radius: 999px; }
+.switch a { font-size: 14px; padding: 6px 14px; border-radius: 999px; color: var(--muted); }
+.switch a[aria-current="page"] { background: var(--ink); color: var(--bg); }
+.switch a:hover { text-decoration: none; color: var(--ink); }
+.switch a[aria-current="page"]:hover { color: var(--bg); }
+
+/* hero */
+.hero .wrap { padding-block: 72px 56px; display: grid; grid-template-columns: 1.15fr 1fr; gap: 48px; align-items: center; }
+.hero h1 { font-size: clamp(38px, 6vw, 68px); line-height: 1.02; font-weight: 600; margin-top: 18px; }
+.hero h1 .l2 { color: var(--muted); font-weight: 400; }
+.hero h1 .l3 { color: var(--blue); }
+.hero .micro { margin-top: 24px; max-width: 46ch; color: var(--muted); font-size: 17px; }
+.hero .anchor { display: inline-flex; align-items: center; gap: 10px; margin-top: 32px; font-weight: 500; color: var(--ink); border-bottom: 1px solid var(--ink); padding-bottom: 2px; }
+.hero .anchor:hover { text-decoration: none; color: var(--blue); border-color: var(--blue); }
+.symbol { min-width: 0; }
+.symbol svg { width: 100%; height: auto; display: block; }
+.symbol figcaption { font-family: var(--mono); font-size: 12px; color: var(--muted); margin-top: 10px; }
+
+/* seções */
+section.block { border-top: 1px solid var(--line); }
+section.block > .wrap { padding-block: 80px; }
+.sec-head { display: grid; grid-template-columns: 220px 1fr; gap: 32px; margin-bottom: 48px; }
+.sec-head h2 { font-size: clamp(28px, 3.6vw, 40px); font-weight: 600; line-height: 1.1; }
+.sec-head p { color: var(--muted); margin-top: 12px; max-width: 60ch; }
+
+/* cases */
+.cases { display: grid; gap: 24px; }
+.case { display: grid; grid-template-columns: 220px 1fr; gap: 32px; padding-top: 32px; border-top: 1px solid var(--line); }
+.case:first-child { border-top: 0; padding-top: 0; }
+.case .num { font-family: var(--mono); font-size: 48px; line-height: 1; color: var(--blue); font-weight: 400; }
+.case .tag { margin-top: 14px; }
+.case-body { min-width: 0; }
+.case h3 { font-size: clamp(22px, 2.6vw, 30px); font-weight: 600; line-height: 1.15; }
+.case .ctx { margin-top: 14px; color: var(--muted); max-width: 64ch; }
+.ba { display: grid; grid-template-columns: 1fr auto 1fr; gap: 12px; align-items: stretch; margin-top: 24px; }
+.ba > div { padding: 16px 18px; border-radius: 10px; min-width: 0; }
+.ba .before { background: var(--surface); }
+.ba .after { background: var(--blue-soft); }
+.ba .k { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+.ba .after .k { color: var(--blue-deep); }
+.ba p { margin-top: 6px; font-size: 15px; }
+.ba .arrow { align-self: center; font-family: var(--mono); color: var(--blue); font-size: 20px; }
+.role { margin-top: 18px; font-size: 14px; color: var(--muted); }
+.role b { color: var(--ink); font-weight: 500; }
+details { margin-top: 20px; border-top: 1px solid var(--line); }
+summary {
+  list-style: none; cursor: pointer; padding: 14px 0; font-weight: 500;
+  display: flex; justify-content: space-between; align-items: center; gap: 12px;
+}
+summary::-webkit-details-marker { display: none; }
+summary .plus { font-family: var(--mono); color: var(--blue); font-size: 20px; transition: transform .2s; }
+details[open] summary .plus { transform: rotate(45deg); }
+.behind { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; padding-bottom: 8px; }
+.behind ul { margin: 0; padding-left: 18px; display: grid; gap: 6px; font-size: 15px; }
+.behind h4 { margin: 0 0 8px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { font-family: var(--mono); font-size: 12px; padding: 4px 10px; border: 1px solid var(--line); border-radius: 999px; color: var(--ink); background: var(--bg); }
+
+/* constância */
+.proof { display: grid; gap: 32px; }
+.clock { background: var(--surface); border-radius: 14px; padding: 24px; overflow-x: auto; }
+.clock svg { display: block; min-width: 640px; width: 100%; height: auto; }
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.stat { border-top: 2px solid var(--ink); padding-top: 14px; }
+.stat .v { font-size: clamp(36px, 5vw, 52px); font-weight: 600; letter-spacing: -0.03em; line-height: 1; font-variant-numeric: tabular-nums; }
+.stat .v small { font-size: 0.45em; color: var(--muted); font-weight: 500; letter-spacing: 0; }
+.stat p { margin-top: 10px; color: var(--muted); font-size: 15px; max-width: 30ch; }
+
+/* comparativo */
+.compare { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+.compare > div { padding: 28px; min-width: 0; }
+.compare .left { background: var(--surface); }
+.compare .right { background: var(--bg); border-left: 1px solid var(--line); }
+.compare h3 { font-size: 20px; font-weight: 600; margin-top: 8px; }
+.compare ul { list-style: none; margin: 18px 0 0; padding: 0; display: grid; gap: 0; }
+.compare li { padding: 12px 0; border-top: 1px solid var(--line); font-size: 15px; display: grid; grid-template-columns: 110px 1fr; gap: 12px; }
+.compare li span { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); padding-top: 3px; }
+.compare .right .eyebrow { color: var(--blue); }
+
+/* stack */
+.stack { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+.stack h4 { margin: 0 0 10px; font-size: 15px; font-weight: 600; }
+
+/* contato */
+.doors { display: grid; gap: 0; border-top: 1px solid var(--ink); }
+.door { display: grid; grid-template-columns: 160px 1fr auto; gap: 16px; align-items: center; padding: 20px 0; border-bottom: 1px solid var(--line); }
+.door .k { font-family: var(--mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+.door .val { font-size: clamp(17px, 2.2vw, 22px); font-weight: 500; min-width: 0; overflow-wrap: anywhere; user-select: all; }
+.door button {
+  font: 500 14px var(--sans); padding: 8px 16px; border-radius: 999px; cursor: pointer;
+  border: 1px solid var(--ink); background: var(--bg); color: var(--ink);
+}
+.door button:hover { background: var(--ink); color: var(--bg); }
+.door button.ok { background: var(--blue); border-color: var(--blue); color: var(--bg); }
+.foot .wrap { padding-block: 32px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: 13px; color: var(--muted); border-top: 1px solid var(--line); }
+
+@media (max-width: 860px) {
+  .hero .wrap { grid-template-columns: 1fr; padding-block: 48px 40px; }
+  .sec-head, .case { grid-template-columns: 1fr; gap: 12px; }
+  .stack { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 620px) {
+  .ba { grid-template-columns: 1fr; }
+  .ba .arrow { transform: rotate(90deg); justify-self: center; }
+  .behind, .stats, .compare { grid-template-columns: 1fr; }
+  .compare .right { border-left: 0; border-top: 1px solid var(--line); }
+  .door { grid-template-columns: 1fr auto; }
+  .door .k { grid-column: 1 / -1; }
+  section.block > .wrap { padding-block: 56px; }
+  .compare li { grid-template-columns: 1fr; gap: 2px; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+@media (prefers-reduced-motion: no-preference) {
+  .flow { stroke-dasharray: 4 8; animation: run 2.4s linear infinite; }
+  @keyframes run { to { stroke-dashoffset: -24; } }
+}
+.navlink { font-size: 14px; color: var(--ink); border: 1px solid var(--line); padding: 6px 14px; border-radius: 999px; }
+.navlink:hover { text-decoration: none; border-color: var(--ink); }
+.clients { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--ink); }
+.clients li { list-style: none; padding: 22px 16px 22px 0; border-bottom: 1px solid var(--line); font-size: clamp(18px, 2.2vw, 24px); font-weight: 500; letter-spacing: -0.01em; min-width: 0; }
+.clients { margin: 0; padding: 0; }
+@media (max-width: 620px) { .clients { grid-template-columns: 1fr 1fr; } }
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#nascente">Bruna Silveira<span>.</span></a>
+    <a class="navlink" href="#foz">Contato</a>
+  </div>
+</header>
+
+<main>
+  <!-- NASCENTE -->
+  <section class="hero" id="nascente">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow"><b>Nascente</b> · Portfólio de dados</p>
+        <h1>
+          <span class="l1">Dado espalhado</span><br>
+          <span class="l2">vira uma base única</span><br>
+          <span class="l3">e uma decisão clara.</span>
+        </h1>
+        <p class="micro">Sou gestora de tecnologia em marketing. Conecto anúncios, redes sociais, CRM e planilhas num mesmo leito de dados, com atualização contínua e números que o time consegue conferir.</p>
+        <a class="anchor" href="#leito">Ver três casos <span aria-hidden="true">↓</span></a>
+      </div>
+      <figure class="symbol" style="margin:0">
+        <svg viewBox="0 0 440 340" role="img" aria-labelledby="symT">
+          <title id="symT">Fontes de dados correndo para as camadas raw, core, ops e marts, até o painel</title>
+          <g font-family="Geist Mono, monospace" font-size="11" fill="#5F6672">
+            <text x="0" y="34">Meta Ads</text>
+            <text x="0" y="94">Instagram</text>
+            <text x="0" y="154">CRM</text>
+            <text x="0" y="214">YouTube</text>
+            <text x="0" y="274">Landing pages</text>
+          </g>
+          <g fill="none" stroke="#1F4BFF" stroke-width="1.5">
+            <path class="flow" d="M92 30 C150 30 150 170 200 170"/>
+            <path class="flow" d="M92 90 C150 90 150 170 200 170"/>
+            <path class="flow" d="M92 150 C150 150 150 170 200 170"/>
+            <path class="flow" d="M92 210 C150 210 150 170 200 170"/>
+            <path class="flow" d="M110 270 C150 270 150 170 200 170"/>
+          </g>
+          <g>
+            <rect x="200" y="80" width="44" height="180" rx="6" fill="#DCE0E7"/>
+            <rect x="252" y="80" width="44" height="180" rx="6" fill="#B9C6F5"/>
+            <rect x="304" y="80" width="44" height="180" rx="6" fill="#7F99FA"/>
+            <rect x="356" y="80" width="44" height="180" rx="6" fill="#1F4BFF"/>
+          </g>
+          <g font-family="Geist Mono, monospace" font-size="10" text-anchor="middle">
+            <text x="222" y="280" fill="#5F6672">raw</text>
+            <text x="274" y="280" fill="#5F6672">core</text>
+            <text x="326" y="280" fill="#5F6672">ops</text>
+            <text x="378" y="280" fill="#0B0D12">marts</text>
+          </g>
+          <path d="M400 170 L430 170" stroke="#0B0D12" stroke-width="1.5"/>
+          <path d="M424 164 L432 170 L424 176" fill="none" stroke="#0B0D12" stroke-width="1.5"/>
+          <text x="440" y="320" text-anchor="end" font-family="Geist, sans-serif" font-size="13" fill="#0B0D12" font-weight="600">painel</text>
+        </svg>
+        <figcaption>Cinco fontes, quatro camadas, um painel.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- LEITO -->
+  <section class="block" id="leito">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow"><b>Leito</b> · Casos</p>
+        <div>
+          <h2>Três casos, contados pelo resultado.</h2>
+          <p>Os clientes aparecem pelo setor, não pelo nome. Os números saem dos registros dos próprios projetos.</p>
+        </div>
+      </div>
+
+      <div class="cases">
+        <!-- 01 -->
+        <article class="case">
+          <div>
+            <div class="num">01</div>
+            <p class="eyebrow tag">Data lake · Marketing</p>
+          </div>
+          <div class="case-body">
+            <h3>Um painel de funil que se atualiza a cada 15 minutos</h3>
+            <p class="ctx">O time precisava ver tráfego pago, orgânico e geração de leads num só lugar, o mais perto possível do tempo real. Os dados viviam em Meta Ads, Instagram, landing pages e CRM, cada um com seu painel.</p>
+            <div class="ba">
+              <div class="before"><span class="k">Antes</span><p>Quatro ferramentas, quatro relatórios, conferência manual.</p></div>
+              <div class="arrow" aria-hidden="true">→</div>
+              <div class="after"><span class="k">Depois</span><p>Base em camadas e painel único, com período personalizado e seletor de campanhas.</p></div>
+            </div>
+            <p class="role"><b>Meu papel:</b> gestão do produto e da demanda, definição do que o painel precisa responder e validação das entregas, com execução técnica em dupla com o head de tecnologia e assistentes de IA.</p>
+            <details>
+              <summary>Por trás da entrega <span class="plus" aria-hidden="true">+</span></summary>
+              <div class="behind">
+                <div>
+                  <h4>Como foi feito</h4>
+                  <ul>
+                    <li>Postgres em quatro camadas (raw, core, ops, marts). Só seis views agregadas ficam expostas ao front.</li>
+                    <li>Segurança por RLS e grants conferidos: a chave pública não lê tabelas base.</li>
+                    <li>Ingestão por n8n com início, confirmação e falha transacionais, lease e auditoria de cada execução, sem duplicar dado.</li>
+                    <li>Instagram com 91 dias de histórico sem buracos e 272 posts carregados.</li>
+                    <li>Leads atribuídos por UTM e landing page, com qualificação de MQL por perfil (A a E) e evento de conversão enviado à Meta só para os perfis mais quentes.</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4>Stack</h4>
+                  <div class="chips">
+                    <span class="chip">Supabase</span><span class="chip">PostgreSQL</span><span class="chip">n8n</span><span class="chip">Meta Graph API</span><span class="chip">Instagram Graph API</span><span class="chip">Conversions API</span><span class="chip">Chart.js</span><span class="chip">Vercel</span>
+                  </div>
+                  <h4 style="margin-top:20px">Desdobramento</h4>
+                  <ul>
+                    <li>A mesma arquitetura foi replicada para um cliente do setor de consórcios, com HubSpot e YouTube: 338 de 359 negócios passaram a ter origem identificada no funil comercial.</li>
+                  </ul>
+                </div>
+              </div>
+            </details>
+          </div>
+        </article>
+
+        <!-- 02 -->
+        <article class="case">
+          <div>
+            <div class="num">02</div>
+            <p class="eyebrow tag">Base de clientes · Varejo automotivo</p>
+          </div>
+          <div class="case-body">
+            <h3>1.020 trocas de óleo em seis planilhas viram uma base acionável</h3>
+            <p class="ctx">Uma rede de seis postos fazia de 1.000 a 1.500 trocas de óleo por mês, cada posto anotando do seu jeito. Não dava para saber quem voltou, quem ficou satisfeito nem por que um cliente sumiu.</p>
+            <div class="ba">
+              <div class="before"><span class="k">Antes</span><p>Seis abas, 96 telefones vazios, nenhuma placa, nenhuma data de retorno.</p></div>
+              <div class="arrow" aria-hidden="true">→</div>
+              <div class="after"><span class="k">Depois</span><p>Base higienizada, telefones no padrão internacional e data-alvo de retorno calculada para cada troca.</p></div>
+            </div>
+            <p class="role"><b>Meu papel:</b> análise e higienização da base, segmentação dos clientes com mais de seis meses sem troca e definição dos indicadores do painel gerencial.</p>
+            <details>
+              <summary>Por trás da entrega <span class="plus" aria-hidden="true">+</span></summary>
+              <div class="behind">
+                <div>
+                  <h4>Como foi feito</h4>
+                  <ul>
+                    <li>Diagnóstico da planilha: 1.020 linhas em seis abas, com lacunas mapeadas por campo.</li>
+                    <li>Tabela única com chave por telefone e data da troca, e data de retorno gerada automaticamente (troca + 6 meses).</li>
+                    <li>Segmento de reativação com cerca de 600 clientes que estavam havia mais de seis meses sem voltar.</li>
+                    <li>Proposta de cupom de combustível como forma de atribuir o retorno à mensagem que o provocou.</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4>Indicadores do painel</h4>
+                  <ul>
+                    <li>Taxa de retorno em seis meses, por posto.</li>
+                    <li>NPS pós-troca, por faixa (promotor, neutro, detrator).</li>
+                    <li>Motivos de perda.</li>
+                    <li>Cobertura de faturamento.</li>
+                  </ul>
+                  <h4 style="margin-top:20px">Stack</h4>
+                  <div class="chips"><span class="chip">Supabase</span><span class="chip">SQL</span><span class="chip">n8n</span><span class="chip">Excel</span></div>
+                </div>
+              </div>
+            </details>
+          </div>
+        </article>
+
+        <!-- 03 -->
+        <article class="case">
+          <div>
+            <div class="num">03</div>
+            <p class="eyebrow tag">Relatórios · Eventos esportivos</p>
+          </div>
+          <div class="case-body">
+            <h3>Disparo para 2.674 leads com custo previsto antes de apertar o botão</h3>
+            <p class="ctx">Uma maratona com meta de 2.000 inscritos precisava saber quanto custava cada rodada de mensagens e o que ela devolvia. Cada disparo passou a vir com previsão e relatório.</p>
+            <div class="ba">
+              <div class="before"><span class="k">Antes</span><p>Disparo sem custo estimado e resultado conhecido só depois.</p></div>
+              <div class="arrow" aria-hidden="true">→</div>
+              <div class="after"><span class="k">Depois</span><p>Custo e tempo de envio previstos, relatório no mesmo dia e próxima rodada proposta pelos números.</p></div>
+            </div>
+            <p class="role"><b>Meu papel:</b> execução dos disparos, estimativa de custo, relatórios e recomendação das rodadas seguintes.</p>
+            <details>
+              <summary>Por trás da entrega <span class="plus" aria-hidden="true">+</span></summary>
+              <div class="behind">
+                <div>
+                  <h4>Números do caso</h4>
+                  <ul>
+                    <li>Rodada de 2.674 leads com custo estimado de R$ 770 e cerca de três horas de envio.</li>
+                    <li>Com 76 vagas restantes, proposta de três disparos para a base de não inscritos, estimada em R$ 500.</li>
+                    <li>Evento com 1.537 ingressos vendidos na última medição registrada.</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4>O mesmo método em outros projetos</h4>
+                  <ul>
+                    <li>Custo por mensagem levantado antes da régua de um cliente de varejo: de R$ 0,03 a R$ 0,06 por mensagem de utilidade.</li>
+                    <li>Relatórios de disparo para uma série de eventos em várias cidades.</li>
+                  </ul>
+                  <h4 style="margin-top:20px">Stack</h4>
+                  <div class="chips"><span class="chip">WhatsApp Cloud API</span><span class="chip">Meta Business</span><span class="chip">Planilhas</span></div>
+                </div>
+              </div>
+            </details>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- VAZÃO -->
+  <section class="block" id="vazao">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow"><b>Vazão</b> · Constância</p>
+        <div>
+          <h2>Um dia de dados, hora por hora.</h2>
+          <p>As cargas que mantenho no ar não esperam ninguém lembrar de rodar. Cada marca abaixo é uma execução agendada num dia comum.</p>
+        </div>
+      </div>
+      <div class="proof">
+        <div class="clock" id="clock" aria-label="Linha do tempo de 24 horas com as cargas agendadas"></div>
+        <div class="stats">
+          <div class="stat"><div class="v">96<small> /dia</small></div><p>cargas de anúncios por dia, uma a cada 15 minutos.</p></div>
+          <div class="stat"><div class="v">91<small> dias</small></div><p>de histórico do Instagram carregados sem nenhum dia faltando.</p></div>
+          <div class="stat"><div class="v">94<small>%</small></div><p>dos negócios com origem identificada no funil comercial (338 de 359).</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARGENS -->
+  <section class="block" id="margens">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow"><b>Margens</b> · Comparativo</p>
+        <div>
+          <h2>Relatório montado à mão ou base que se atualiza sozinha.</h2>
+          <p>O mesmo pedido, "quero ver como está o funil", atendido de dois jeitos.</p>
+        </div>
+      </div>
+      <div class="compare">
+        <div class="left">
+          <p class="eyebrow">Como costuma ser</p>
+          <h3>Relatório manual</h3>
+          <ul>
+            <li><span>Atualização</span>Quando alguém tem tempo.</li>
+            <li><span>Fonte</span>Exportações de cada ferramenta, coladas numa planilha.</li>
+            <li><span>Conferência</span>Ninguém sabe qual versão é a certa.</li>
+            <li><span>Lead</span>Origem perdida entre o anúncio e o CRM.</li>
+            <li><span>Acesso</span>Arquivo enviado por mensagem.</li>
+          </ul>
+        </div>
+        <div class="right">
+          <p class="eyebrow">Como eu entrego</p>
+          <h3>Base em camadas</h3>
+          <ul>
+            <li><span>Atualização</span>A cada 15 minutos para anúncios e CRM, de hora em hora para orgânico.</li>
+            <li><span>Fonte</span>APIs oficiais, com cada execução auditada.</li>
+            <li><span>Conferência</span>Números batidos contra a ferramenta de origem antes de publicar.</li>
+            <li><span>Lead</span>Atribuição por UTM e landing page, com perfil de qualificação.</li>
+            <li><span>Acesso</span>Painel com login e só dados agregados expostos.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FERRAMENTAS -->
+  <section class="block" id="ferramentas">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow"><b>Afluentes</b> · Ferramentas</p>
+        <div><h2>O que eu uso no caminho.</h2></div>
+      </div>
+      <div class="stack">
+        <div><h4>Armazenamento</h4><div class="chips"><span class="chip">Supabase</span><span class="chip">PostgreSQL</span><span class="chip">RLS</span><span class="chip">Migrations</span><span class="chip">Modelagem em camadas</span></div></div>
+        <div><h4>Ingestão</h4><div class="chips"><span class="chip">n8n</span><span class="chip">REST APIs</span><span class="chip">Cron</span><span class="chip">Webhooks</span><span class="chip">ELT idempotente</span></div></div>
+        <div><h4>Fontes</h4><div class="chips"><span class="chip">Meta Ads</span><span class="chip">Instagram</span><span class="chip">HubSpot</span><span class="chip">RD Station</span><span class="chip">YouTube</span><span class="chip">GA4</span></div></div>
+        <div><h4>Visualização</h4><div class="chips"><span class="chip">Chart.js</span><span class="chip">Vercel</span><span class="chip">Dashboards</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="clientes">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow"><b>Bacia</b> · Clientes</p>
+        <div><h2>Outros clientes atendidos.</h2></div>
+      </div>
+      <ul class="clients">
+        <li>Wiser Educação</li><li>ATrinca</li><li>Marun Running</li><li>Método Destiny</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- FOZ -->
+  <section class="block" id="foz">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow"><b>Foz</b> · Contato</p>
+        <div><h2>Escolha uma porta.</h2><p>Uma por canal. O botão copia o endereço.</p></div>
+      </div>
+      <div class="doors">
+        <div class="door"><span class="k">E-mail</span><span class="val">bruna.silveirac@outlook.com</span><button type="button" data-copy>Copiar</button></div>
+        <div class="door"><span class="k">LinkedIn</span><span class="val"><a href="https://www.linkedin.com/in/bruna-silveira-crispim/">linkedin.com/in/bruna-silveira-crispim</a></span><button type="button" data-copy data-value="https://www.linkedin.com/in/bruna-silveira-crispim/">Copiar</button></div>
+        <div class="door"><span class="k">WhatsApp</span><span class="val">+55 18 99714-2108</span><button type="button" data-copy>Copiar</button></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap"><span>Bruna Silveira · Dados</span><span>Clientes citados por setor, a pedido de confidencialidade.</span></div>
+</footer>
+
+<script>
+(function () {
+  // linha do tempo de 24h com as cargas agendadas
+  var rows = [
+    { label: "Anúncios", every: 15, color: "#1F4BFF" },
+    { label: "CRM", every: 15, color: "#0A2A9E" },
+    { label: "Instagram", every: 60, offset: 7, color: "#0B0D12" },
+    { label: "YouTube", at: [6 * 60], color: "#5F6672" },
+    { label: "Resumo diário", at: [23 * 60 + 30], color: "#5F6672" }
+  ];
+  var W = 900, left = 110, right = 16, rowH = 34, top = 12, H = top + rows.length * rowH + 30;
+  var x = function (m) { return left + (m / 1440) * (W - left - right); };
+  var s = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img"><title>Execuções agendadas ao longo de 24 horas</title>';
+  for (var h = 0; h <= 24; h += 3) {
+    s += '<line x1="' + x(h * 60) + '" x2="' + x(h * 60) + '" y1="' + top + '" y2="' + (H - 24) + '" stroke="#DCE0E7" stroke-width="1"/>';
+    s += '<text x="' + x(h * 60) + '" y="' + (H - 8) + '" font-family="Geist Mono, monospace" font-size="11" fill="#5F6672" text-anchor="middle">' + String(h).padStart(2, "0") + 'h</text>';
+  }
+  rows.forEach(function (r, i) {
+    var cy = top + i * rowH + rowH / 2;
+    s += '<text x="0" y="' + (cy + 4) + '" font-family="Geist, sans-serif" font-size="13" fill="#0B0D12">' + r.label + '</text>';
+    var times = r.at || [];
+    if (r.every) for (var m = r.offset || 0; m < 1440; m += r.every) times.push(m);
+    times.forEach(function (m) {
+      var big = !!r.at;
+      s += '<rect x="' + (x(m) - (big ? 3 : 1)) + '" y="' + (cy - (big ? 10 : 8)) + '" width="' + (big ? 6 : 2) + '" height="' + (big ? 20 : 16) + '" rx="1" fill="' + r.color + '"/>';
+    });
+    if (r.every) s += '<text x="' + (W - right) + '" y="' + (cy - 12) + '" font-family="Geist Mono, monospace" font-size="10" fill="#5F6672" text-anchor="end">a cada ' + r.every + ' min</text>';
+  });
+  s += '</svg>';
+  document.getElementById("clock").innerHTML = s;
+
+  // copiar
+  document.querySelectorAll("[data-copy]").forEach(function (b) {
+    b.addEventListener("click", function () {
+      var v = b.parentNode.querySelector(".val");
+      var text = b.dataset.value || v.textContent.trim();
+      var done = function () { b.textContent = "Copiado"; b.classList.add("ok"); setTimeout(function () { b.textContent = "Copiar"; b.classList.remove("ok"); }, 1600); };
+      var fallback = function () { var r = document.createRange(); r.selectNodeContents(v); var sel = getSelection(); sel.removeAllRanges(); sel.addRange(r); b.textContent = "Selecionado"; };
+      try { navigator.clipboard.writeText(text).then(done, fallback); } catch (e) { fallback(); }
+    });
+  });
+})();
+</script>
+
+</body></html>
